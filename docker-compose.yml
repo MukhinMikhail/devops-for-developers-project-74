@@ -3,7 +3,6 @@ version: "3.9"
 services:
   app:
     build:
-      dockerfile: Dockerfile
-    volumes:
-      - ./app:/app
+      dockerfile:  Dockerfile.production
+    image: "croomboow/devops-for-developers-project-74"    
     command: ["make", "test"]  

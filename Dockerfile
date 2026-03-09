@@ -6,7 +6,4 @@ COPY /app/package*.json ./
 
 RUN npm ci
 
-
 COPY . .
-
-RUN echo $(ls -la)
