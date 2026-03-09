@@ -4,5 +4,7 @@ services:
   app:
     build:
       dockerfile:  Dockerfile.production
+    environment:
+      - NODE_ENV=production
     image: "croomboow/devops-for-developers-project-74"    
     command: ["make", "test"]  

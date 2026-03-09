@@ -7,5 +7,26 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ./app:/app  
+      - ./app:/app
+    environment:
+      - NODE_ENV=development   
     command: ["make", "dev"]  
+
+
+  caddy:
+    image: caddy:latest
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./services/caddy:/etc/caddy
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - app
+
+volumes:
+  caddy_data:
+  caddy_config:
